@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Piedra, Papel, Tijera, Lagarto, Spock</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="auth-container" class="game-container fadeIn">
+        <h1>Bienvenido a Piedra, Papel, Tijera, Lagarto, Spock</h1>
+        <div id="login-form" class="form-container">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Nombre de usuario">
+            <input type="password" id="login-password" placeholder="Contraseña">
+            <button class="btn" onclick="login()">Ingresar</button>
+            <p class="error-message" id="login-error"></p>
+            <button class="btn" onclick="showRegisterForm()">¿No tienes cuenta? Regístrate</button>
+        </div>
+        <div id="register-form" class="form-container" style="display: none;">
+            <h2>Registro</h2>
+            <input type="text" id="register-username" placeholder="Nombre de usuario">
+            <input type="password" id="register-password" placeholder="Contraseña">
+            <input type="password" id="register-password-confirm" placeholder="Confirmar Contraseña">
+            <button class="btn" onclick="register()">Registrar</button>
+            <p class="error-message" id="register-error"></p>
+            <button class="btn" onclick="showLoginForm()">¿Ya tienes cuenta? Inicia sesión</button>
+        </div>
+    </div>
+
+    <div id="game-screen" class="game-screen">
+        <h2>¡Es tu turno, <span id="username-display">Jugador</span>!</h2>
+        <div id="scoreboard">
+            <p>Puntajes</p>
+            <p><span id="player-score">0</span> | <span id="machine-score">0</span></p>
+        </div>
+        <div class="choices">
+            <button class="choice" onclick="playRound('piedra')">
+                <img src="img/piedra.jpg" alt="Piedra">
+            </button>
+            <button class="choice" onclick="playRound('papel')">
+                <img src="img/papel.jpg" alt="Papel">
+            </button>
+            <button class="choice" onclick="playRound('tijera')">
+                <img src="img/tijera.jpg" alt="Tijera">
+            </button>
+            <button class="choice" onclick="playRound('lagarto')">
+                <img src="img/lagarto.jpg" alt="Lagarto">
+            </button>
+            <button class="choice" onclick="playRound('spock')">
+                <img src="img/spock.jpg" alt="Spock">
+            </button>
+        </div>
+        <div class="comparison">
+            <div id="player-choice">
+                <h3>¡Tú elegiste!</h3>
+                <img id="player-img" src="" alt="Tu Elección">
+            </div>
+            <div id="machine-choice">
+                <h3>La máquina eligió:</h3>
+                <img id="machine-img" src="" alt="Elección de la Máquina">
+            </div>
+        </div>
+        <div id="result" class="result-text"></div>
+        <button id="reset-button" class="btn" onclick="resetGame()">Reiniciar Juego</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
